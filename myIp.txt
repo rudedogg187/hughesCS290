@@ -1,0 +1,1 @@
+my EC2 ip address is 52.26.232.10:3000
