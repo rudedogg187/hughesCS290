@@ -1,0 +1,58 @@
+/*	Josh Hughes 
+	W2 Assignment CS290-400
+	17 JAN 2016
+	Reference for table Styles: Lynda.com
+*/	
+
+
+table {
+	background: pink;
+}
+
+caption {
+	caption-side: top; 
+	text-align: center;
+}
+
+.foot {
+	background: white;
+	font-style: regular;
+}
+
+tr:nth-child(odd) {
+	background: lightSkyBlue;
+}
+
+th {
+	border: 1px solid black;
+	border-bottom: 3px solid black;
+	vertical-align: middle; 
+	background: white;
+}
+
+td {
+	border: 1px solid black;
+}
+
+.tbod td:first-child {
+	text-align: center;
+	font-style: italic; 	
+}
+
+.innerDiv {
+	width: 75%;
+	background-color: lightSkyBlue;
+	margin: 0 auto;
+}
+
+.outerDiv {
+	float: left;
+	padding: 20px;
+	width: 75%;
+	background-color: pink; 
+
+}
+
+.center {
+	text-align: center;
+}

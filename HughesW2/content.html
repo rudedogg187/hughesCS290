@@ -1,0 +1,208 @@
+<!--	Josh Hughes 
+	W2 Assignment CS290-400
+	17 JAN 2016
+	Reference for table Styles: Lynda.com
+-->	
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>table</title>
+		<link href="styles.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<table> 
+			<caption>Places Lived</caption>
+			<thead>
+				<tr>
+					<th></th>
+					<th>City</th>
+					<th>Zip</th>
+					<th>From</th>
+					<th>To</th>
+					<th>Years</th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<td class="foot" colspan="2">Footer 1</td>
+					<td class="foot" colspan="4">Footer 2</td>
+				</tr>	
+			</tfoot>	
+			<tbody class="tbod">
+				<tr>
+					<td>Oregon</td>
+					<td>Roseburg</td>
+					<td>97471</td>
+					<td>1980</td>
+					<td>2003</td>
+					<td>23</td>		
+				</tr>
+				<tr>
+					<td>Florida</td>
+					<td>Pensacola</td>
+					<td>32511</td>		
+					<td>2003</td>		
+					<td>2004</td>		
+					<td>&lt;1</td>		
+				</tr>
+				<tr>
+					<td>Hawaii</td>		
+					<td>Ewa Beach</td>		
+					<td>96706</td>		
+					<td>2004</td>		
+					<td>2008</td>
+					<td>4</td>
+				</tr>
+				<tr>
+					<td>Maryland</td>		
+					<td>Columbia</td>		
+					<td>21045</td>		
+					<td>2008</td>		
+					<td>2012</td>
+					<td>4</td>
+				</tr>
+				<tr>
+					<td>Oregon</td>		
+					<td>Springfield</td>		
+					<td>97408</td>		
+					<td>2012</td>		
+					<td>Present</td>
+					<td>4</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<ul>
+			<li>Randy Roo</li>
+			<ul>
+				<li>Main Coon</li>
+			</ul>
+			<li>Beulah Boo</li>
+			<ul>
+				<li>American Shorthair</li>
+			</ul>	
+			<li>Cali Too</li>
+			<ul>
+				<li>Calico</li>
+			</ul>
+		</ul>	
+		
+		<div class="outerDiv">
+		
+			<div class="innerDiv center">
+				Div Here
+			</div>
+		</div>
+
+		<form action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
+			<fieldset>
+				<legend>
+					Some GET Data
+				</legend>
+				<br />
+				<fieldset>
+					<label>
+						Text here:
+						<input type="text" name="text_input" size="30" maxlength="100" />	
+					</label>
+				</fieldset>	
+				<br />
+				<fieldset>
+					<label>
+						Number here:
+						<input type="number" name="numerical_input" size="30" maxlength="100" />	
+					</label>
+				</fieldset>
+				<br />
+				<fieldset>
+					<label>
+						Password here:
+						<input type="password" name="password_input" size="30" maxlength="100" />	
+					</label>
+				</fieldset>
+				<br />
+				<fieldset>
+					<div>Select between:</div>
+					<br />
+					<label>
+						<input type="radio" name="candy" value="Snickers" />
+						Snickers
+					</label>
+					<br />
+					<br />
+					<label>
+						<input type="radio" name="candy" value="Skittles" />
+						Skittles
+					</label>
+					<br />
+					<br />
+					<label>
+						<input type="radio" name="candy" value="Mentos" />
+						Mentos
+					</label>
+					<br />
+					<br />
+					<input type="submit" value="Submit" />
+				</fieldset>	
+			</fieldset>	
+		</form>
+		<br />
+		<br />
+		<form action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="post">
+			<fieldset>
+				<legend>
+					Some POST Data
+				</legend>
+				<br />
+				<fieldset>
+					<label>
+						Text here:
+						<input type="text" name="text_input" size="30" maxlength="100" />	
+					</label>
+				</fieldset>	
+				<br />
+				<fieldset>
+					<label>
+						Number here:
+						<input type="number" name="numerical_input" size="30" maxlength="100" />	
+					</label>
+				</fieldset>
+				<br />
+				<fieldset>
+					<label>
+						Password here:
+						<input type="password" name="password_input" size="30" maxlength="100" />	
+					</label>
+				</fieldset>
+				<br />
+				<fieldset>
+					<div>Select between:</div>
+					<br />
+					<label>
+						<input type="radio" name="candy" value="Snickers" />
+						Snickers
+					</label>
+					<br />
+					<br />
+					<label>
+						<input type="radio" name="candy" value="Skittles" />
+						Skittles
+					</label>
+					<br />
+					<br />
+					<label>
+						<input type="radio" name="candy" value="Mentos" />
+						Mentos
+					</label>
+					<br />
+					<br />
+					<input type="submit" value="Submit" />
+				</fieldset>	
+			</fieldset>	
+		</form>
+
+
+	</body>
+</html>
