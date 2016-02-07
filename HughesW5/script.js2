@@ -1,0 +1,17 @@
+
+var docBody = document.getElementsByTagName('body')[0];
+
+var myTable = document.createElement('table');
+
+docBody.appendChild(myTable);
+
+
+
+
+var row = document.createElement('th');
+
+var cell = document.createTextNode('Fuck');
+
+row.appendChild(cell);
+
+myTable.appendChild(row);
