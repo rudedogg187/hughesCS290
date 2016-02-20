@@ -1,0 +1,30 @@
+<html lang='en'>
+	<head>
+		<meta charset='utf-8'>
+		<title>GET AJAX</title>
+		<link href="getStyles.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		
+		<form>
+			<fieldset>
+				<legend>Enter City or Zip Code</legend>
+				<label for='locationForm'</label>
+				<input type='text' name='location' id='locInput'><br>
+				<button type='button' id='locSubmit'>Submit</button>
+			</fieldset>
+		</form>	
+
+		<div id='results'>
+			<h2><span id='locationSummary'></span></h2>
+			<img id='weatherIcon'><br>
+			<h2><span id='locationSummary'></span></h2>
+			<span id='currentTemp'></span><br><br>
+			<span id='lowTemp'></span><br>
+			<span id='highTemp'></span><br>
+		</div>
+		
+		<script type='text/javascript' src='getScript.js'></script>
+	</body>
+</html>
+
