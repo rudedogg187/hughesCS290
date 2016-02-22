@@ -58,6 +58,7 @@ function getParams(request) {
 	}
 
 	return paramLst;
+}
 
 
 
