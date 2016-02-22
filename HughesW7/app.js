@@ -64,17 +64,15 @@ function getParams(request) {	//take in a request type, ccreates an array, retur
 
 //ERROR 404
 app.use(function(request, response) {
-	response.type('text/plain');
 	response.status(404);
-	response.send('404 - Not Found my Friend');
+	response.render('nopage.handlebars');
 });
 
 //SYNTAX ERROR
 app.use(function(error, request, response, next) {
 	console.error(error.stack);
-	response.type('plain/text');
 	response.status(500);
-	response.send('500 - Server Error my Friend');
+	response.render('errorpage.handlebars');
 });
 
 app.listen(app.get('port'), function() {
