@@ -21,8 +21,7 @@ app.get('/', function(request, response) {
 //GET LOOPBACK
 app.get('/get-loopback', function(request, response) {
 	var qParams = getParams(request.query);
-	console.log('GET:');
-	console.log(qParams);
+	console.log('GET QUERY: ' + qParams);
 	var context = {};
 	context.dataLst = qParams;
 	response.render('get-loopback.handlebars', context);
@@ -36,10 +35,10 @@ app.post('/post-loopback', function(request, response) {
 	for (var p in request.body) {
 		bParams.push({'name':p, 'value':request.body[p]});
 	}*/
+	qParams = getParams(request.query);
 	bParams = getParams(request.body);
-	console.log('POST:');
-	console.log(bParams);
-	console.log(request.body);
+	console.log('POST QUERY: ' + qParams);
+	console.log('POST BODY: ' + bParams);
 	var context = {};
 	context.dataLst = bParams;
 	response.render('post-loopback', context);
@@ -53,7 +52,6 @@ function getParams(request) {
 	}
 	return paramLst;
 }
-
 
 
 //ERROR 404
