@@ -24,8 +24,8 @@ app.get('/get-loopback', function(request, response) {
 	console.log('GET QUERY:');
 	console.log(qParams);
 	var context = {};
-	context.dataLst = qParams;
-	response.render('get-loopback.handlebars', context);
+	qContext.dataLst = qParams;
+	response.render('get-loopback.handlebars', qContext);
 });
 
 //POST LOOPBACK
@@ -36,15 +36,18 @@ app.post('/post-loopback', function(request, response) {
 	for (var p in request.body) {
 		bParams.push({'name':p, 'value':request.body[p]});
 	}*/
-	qParams = getParams(request.query);
-	bParams = getParams(request.body);
+	var qParams = getParams(request.query);
+	var bParams = getParams(request.body);
 	console.log('POST QUERY:');
 	console.log(qParams);
 	console.log('POST BODY:');
 	console.log(bParams);
-	var context = {};
-	context.dataLst = bParams;
-	response.render('post-loopback', context);
+
+	var qContext = {};
+	var bContext = {};
+	qContext.dataLst = qParams;
+	bContext.dataLst = qParams;
+	response.render('post-loopback', BContext);
 });
 
 //GET PARM LIST
@@ -53,8 +56,9 @@ function getParams(request) {
 	for (var p in request) {
 		paramLst.push({'name':p, 'value':request[p]});
 	}
+
 	return paramLst;
-}
+
 
 
 //ERROR 404
