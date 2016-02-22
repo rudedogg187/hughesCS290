@@ -13,84 +13,64 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 3000);
 
-app.get('/', function(request, response) {
-	response.render('home.handlebars');
-});
-
-app.get('/test', function(request, response) {
-	response.render('test.handlebars');
-});
-
-function getContext() {
-	var toDisplay = {};
-	toDisplay.first = "Keagan";
-	toDisplay.last = "Hughes";
-	toDisplay.middle = "Dale";
-	return toDisplay;
-}
-
-app.get('/name', function(request, response) {
-	response.render('name.handlebars', getContext());
-});
-
-app.get('/get-loopback', function(request, response) {
-	var qParams = [];
-	console.log("request.query:");
-	console.log(request.query);
-	for (var p in request.query) {
-		qParams.push({'name':p, 'value':request.query[p]});
-	}
-	console.log('GET:');
-	console.log(qParams);
-	var context = {};
-	context.dataLst = qParams;
-	response.render('get-loopback.handlebars', context);
-});
-
-app.post('/post-loopback', function(request, response) {
-	var qParams = [];
-	console.log('request.query');
-	console.log(request.query);
-	for (var p in request.body) {
-		qParams.push({'name':p, 'value':request.body[p]});
-	}
-	console.log('POST:');
-	console.log(qParams);
-	console.log(request.body);
-	var context = {};
-	context.dataLst = qParams;
-	response.render('post-loopback', context);
-});
-
 
 /*
-app.get('/get-loopback', function(request, response) {
-	var qParams = "";
-	for (var p in request.query) {
-		qParams += "Key: " + p + " | Value: " + request.query[p] +'\n'; 
-	}
-	console.log(qParams);
-});
-
-app.get('/show-data', function(request, response) {
-	var context = {};
-	context.dataSent = request.query.myData;
-	context.dataSent2 = request.query.myData2;
-	console.log(request.query);
-	response.render('show-data.handlebars', context);
+//HOME PAGE @ ROOT
+app.get('/', function(request, response) {
+	response.render('home.handlebars');
 });
 */
 
 
+//GET LOOPBACK
+app.get('/', function(request, response) {
+	var qParams = getParams(request.query);
+	console.log('GET QUERY:');
+	console.log(qParams);
+	
+	var context = {};
+
+	context.qDataLst = qParams;
+	response.render('get-loopback.handlebars', context);
+});
+
+//POST LOOPBACK
+app.post('/', function(request, response) {
+	var qParams = getParams(request.query);
+	var bParams = getParams(request.body);
+	console.log('POST QUERY:');
+	console.log(qParams);
+	console.log('POST BODY:');
+	console.log(bParams);
+
+	var context = {};
+
+	context.qDataLst = qParams;
+	context.bDataLst = bParams;
+	
+	response.render('post-loopback', context);
+});
+
+//GET PARM LIST
+function getParams(request) {
+	var paramLst = [];
+	for (var p in request) {
+		paramLst.push({"name":p, "value":request[p]});
+	}
+
+	return paramLst;
+}
 
 
 
+//ERROR 404
 app.use(function(request, response) {
 	response.type('text/plain');
 	response.status(404);
 	response.send('404 - Not Found my Friend');
 });
 
+//SYNTAX ERROR
 app.use(function(error, request, response, next) {
 	console.error(error.stack);
 	response.type('plain/text');

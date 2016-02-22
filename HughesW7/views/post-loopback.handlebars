@@ -1,6 +1,36 @@
-<h1>You sent the following data in a POST request:<h1>
-<ul>
-	{{#each dataLst}}
-		<li>{{this.name}}: {{this.value}}
+<h1>You sent the following data in a POST request:</h1>
+<table>
+	<h3>Query Response</h3>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Value</th>
+		</tr>
+	</thead>
+	{{#each qDataLst}}
+		<tr>
+			<td>{{this.name}}</td>		
+			<td>{{this.value}}</td>
+		</tr>	
 	{{/each}}
-</ul>
+</table>
+<br>
+<br>
+<br>
+<br>
+<table>
+	<h3>Body Response</h3>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Value</th>
+		</tr>
+	</thead>
+	{{#each bDataLst}}
+		<tr>
+			<td>{{this.name}}</td>		
+			<td>{{this.value}}</td>
+		</tr>	
+	{{/each}}
+</table>
+
