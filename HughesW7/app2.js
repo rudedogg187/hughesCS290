@@ -30,13 +30,13 @@ app.get('/get-loopback', function(request, response) {
 
 //POST LOOPBACK
 app.post('/post-loopback', function(request, response) {
-	var bParams = [];
+	/*var bParams = [];
 	console.log('request.query');
 	console.log(request.query);
 	for (var p in request.body) {
 		bParams.push({'name':p, 'value':request.body[p]});
-	}
-	//bParams = getParams(request.body);
+	}*/
+	bParams = getParams(request.body);
 	console.log('POST:');
 	console.log(bParams);
 	console.log(request.body);
