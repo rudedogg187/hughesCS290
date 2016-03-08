@@ -1,0 +1,45 @@
+<h1>THIS IS THE {{pageName}} PAGE<h1>
+
+
+    <script type="text/javascript">
+
+      google.charts.load('current', {'packages':['corechart', 'table', 'sankey']});
+
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addColumn('number', 'Calories');
+        data.addColumn('number', 'Yums');
+        data.addRows([
+          ['Mushrooms', 300, 120,10 ],
+          ['Onions', 100, 90, 10],
+          ['Olives', 100, 55, 10],
+          ['Zucchini', 100, 30, 10],
+          ['Pepperoni', 200, 145, 10]
+        ]);
+
+        // Set chart options
+        var options = {
+          'legend':'left',
+          'title':'My Big Pie Chart',
+          'is3D':true,
+          'width':400,
+          'height':300
+        } 
+
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+
+        chart.draw(data, null);
+      }
+    </script>
+
+
+
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>

@@ -1,0 +1,36 @@
+<form>
+	<fieldset>
+		<legend>Search for Brewery</legend>
+		<label for='locationForm'</label>
+		City <input type='text' name='city' id='cityInput'><br>
+		State<input type='text' name='state' id='stateInput'><br>
+		<button type='button' id='locSubmit'>Submit</button>
+	</fieldset>
+</form>	
+
+
+<div>Welcome to the {{pageName}} page</div><br>
+<br>
+
+<table>
+	<h3>Query Request</h3>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Value</th>
+		</tr>
+	</thead>
+	{{#each brewData}}
+		<tr>
+			<td>{{this.name}}</td>		
+			<td>{{this.phone}}</td>
+		</tr>	
+	{{/each}}
+</table>
+ 
+
+
+
+		
+
+

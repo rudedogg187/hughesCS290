@@ -76,5 +76,5 @@ app.use(function(error, request, response, next) {
 });
 
 app.listen(app.get('port'), function() {
-	console.log('Express started, Ctrl-C to stop');
+	console.log('Visit http://52.26.232.10:3000/ Ctrl-C to stop');
 });

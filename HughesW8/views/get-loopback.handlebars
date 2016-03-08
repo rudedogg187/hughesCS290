@@ -1,0 +1,16 @@
+<h1>You sent the following data in a GET request:</h1>
+<table>
+	<h3>Query Request</h3>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Value</th>
+		</tr>
+	</thead>
+	{{#each qDataLst}}
+		<tr>
+			<td>{{this.name}}</td>		
+			<td>{{this.value}}</td>
+		</tr>	
+	{{/each}}
+</table>

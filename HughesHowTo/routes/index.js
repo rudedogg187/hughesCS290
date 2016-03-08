@@ -1,13 +1,37 @@
+var apiKey = '195cce2aa1e91e3fccde548044b6023a'
+var request = require('request');
+
 exports.home = function (req, res) {
 	var context = {};
 	context.pageName = 'HOME';
 	res.render('home', context);
 }
 
-exports.example = function (req, res) {
+exports.breweryORG = function (req, res) {
 	var context = {};
-	context.pageName = 'EXAMPLE';
-	res.render('example', context);
+	context.pageName = 'brewery search';
+	res.render('brewery', context);
+}
+
+exports.brewery = function (req, res, next) {
+	var context = {};
+	request('http://api.brewerydb.com/v2/locations?locality=Eugene&region=Oregon&countryIsoCode=US&key=' + apiKey, function(err, response, body){
+		if(!err && response.statusCode<400){
+			var brewData = JSON.parse(body).data;
+			context.pageName = 'brewery';
+			context.brewData = brewData;
+			context.body = body;
+			res.render('brewery', context);
+			console.log(brewData);
+		}
+		else {
+			next(err);
+		}
+
+
+	});
+	//context.pageName = 'brewery search';
+	//res.render('brewery', context);
 }
 
 exports.key = function (req, res) {
@@ -31,6 +55,7 @@ exports.reference = function (req, res) {
 exports.bad = function (req, res) {
 	var context = {};
 	context.pageName = 'Bad Route';
+	context.script = 
 	res.status(404);
 	res.render('bad', context);
 }
