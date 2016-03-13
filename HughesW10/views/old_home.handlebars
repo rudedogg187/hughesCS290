@@ -1,0 +1,92 @@
+<div class="container">
+	<h1> {{page}} VIEW WORKS!!!</h1>
+
+	<h2>Enter Workout Data Here</h2>
+
+	<form class="form-horizontal" role="form">
+		<div class="form-group">
+
+			<label class="control-label col-sm-2" for="workoutForm">*Name:</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="nameInput" placeholder="(enter text)">
+			</div>
+			
+			<label class="control-label col-sm-2" for="workoutForm">Reps:</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="repsInput" placeholder="(enter number)">
+			</div>
+		
+			<label class="control-label col-sm-2" for="workoutForm">Weight:</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="weightInput" placeholder="(enter number)">
+			</div>
+
+			<label class="control-label col-sm-2" for="workoutForm">Date:</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="dateInput" placeholder="(enter date format)">
+			</div>
+
+			<label class="control-label col-sm-2" for="workoutForm">LBs:</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="lbsInput" placeholder="(enter true/false)">
+			</div>
+
+		</div>		
+		<div class="form-group">
+   			<div class="col-sm-offset-2 col-sm-10">
+     			 <button type="submit" id="submitButton" class="btn btn-success">Submit Data</button>
+    		</div>
+		</div>	
+
+	
+	<form>
+
+	<h2>Workout Data</h2>
+	<table class="table table-bordered table-striped table-condensed">
+		<thead>
+			<th>Name</th>
+			<th>Reps</th>
+			<th>Weight</th>
+			<th>Date</th>
+			<th>LBs</th>
+
+		</thead>
+		<tbody>
+			<tr>
+				<td>TEST NAME</td>
+				<td>TEST REPS</td>
+				<td>TEST WEIGHT</td>
+				<td>TEST DATE</td>
+				<td>TEST LBS</td>
+			</tr>
+			<tr>
+				<td>TEST NAME</td>
+				<td>TEST REPS</td>
+				<td>TEST WEIGHT</td>
+				<td>TEST DATE</td>
+				<td>TEST LBS</td>
+			</tr>
+
+		</tbody>
+
+	</table>
+
+	<div class="form-group">
+  	 	<div class="col-sm-offset-2 col-sm-10">
+   			 <button type="submit" id="resetButton" class="btn btn-danger btn-xs">Reset Table</button>
+   		</div>
+   	</div>	
+
+	<div id="status">status here</div>	
+	<div>--- RESULTS ---</div>
+	{{results}}
+	<div>--- RESULTS ---</div>
+
+	<div>--- LENGTH ---</div>
+	{{length}}
+	<div>--- LENGTH ---</div>
+
+</div>
+
+
+
