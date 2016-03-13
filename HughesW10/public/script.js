@@ -84,6 +84,7 @@ function isNull(val) {
 }
 
 
+
 function insertRow(data) {
 	console.log(data);
 	console.log(data.name);
@@ -104,6 +105,48 @@ function insertRow(data) {
 	var dButton = document.createElement('button');
 	dButton.type = 'submit';
 	dButton.className = 'btn btn-danger btn-xs';
+	dButton.addEventListener('click', function(event) {
+
+
+//*****************************
+
+	var request = new XMLHttpRequest();
+	var payload = {};
+	var dataId = data.id
+	var toDelete = document.getElementById(dataId);
+
+	payload.id = dataId;
+
+	request.open('POST', '/delete', true);
+	request.setRequestHeader("Content-Type", "application/json");
+
+	request.addEventListener('load', function () {
+        if (request.status >= 200 && request.status < 400) {
+            var response = JSON.parse(request.responseText);
+			var results = response.results;
+
+//			console.log(response);
+			document.getElementById('status').textContent = response.status; 
+
+			toDelete.parentNode.removeChild(toDelete);
+		}
+	});
+
+    request.send(JSON.stringify(payload));
+
+	event.preventDefault();
+
+
+//************************
+
+
+
+
+
+		
+	});
+
+
 
 	dButton.appendChild(delText);
 	
@@ -152,13 +195,6 @@ function insertRow(data) {
 	parent.appendChild(tableRow);
 }
 
-function removeRow(rowId) {
-
-	var toRemove = document.getElementById(rowId);
-	var parent = document.getElementById("workoutData");
-
-	parent.removeChild(toRemove);
-}
 
 
 function resetData(event) {

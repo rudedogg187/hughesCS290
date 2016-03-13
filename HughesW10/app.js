@@ -68,6 +68,27 @@ app.post('/insert',function(req,res,next){
 });
 
 
+//delete data****************************************************************************************
+app.post('/delete', function(req,res,next) {
+	var context = {};
+	pool.query("DELETE FROM workouts WHERE id=? ", 
+	[
+		req.body.id
+	], function(err, result) {
+
+    if(err) {
+      next(err);
+      return;
+    }
+
+    context.status = 'Status: ID ' + req.body.id + ' Deleted from Database';
+
+	res.send(context);
+
+  });
+});
+
+
 //reset table*****************************************************************************************
 app.post('/reset-table', function(req, res, next) {
 	var context = {};
