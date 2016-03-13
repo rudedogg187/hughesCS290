@@ -1,4 +1,3 @@
-var ACTIVE_IDS = [];
 
 
 document.addEventListener("DOMContentLoaded", getData); 
@@ -93,20 +92,42 @@ function insertRow(data) {
 	var dataId = data.id;
 
 	tableRow.id = dataId;
-	ACTIVE_IDS.push(dataId);
 
-	
 	var nameText = document.createTextNode(data.name);
 	var repsText = document.createTextNode(data.reps);
 	var wghtText = document.createTextNode(data.weight);
 	var dateText = document.createTextNode(data.date);
 	var lbsText = document.createTextNode(data.lbs);
 
+
+	var delText = document.createTextNode('DELETE');
+	var dButton = document.createElement('button');
+	dButton.type = 'submit';
+	dButton.className = 'btn btn-danger btn-xs';
+
+	dButton.appendChild(delText);
+	
+
+	var updText = document.createTextNode('UPDATE');
+	var uButton = document.createElement('button');
+	uButton.type = 'submit';
+	uButton.className = 'btn btn-info btn-xs';
+
+	uButton.appendChild(updText);
+
+
+
+
+
+
+
 	var dataName = document.createElement('td');
 	var dataReps = document.createElement('td');
 	var dataWght = document.createElement('td');
 	var dataDate = document.createElement('td');
 	var dataLbs = document.createElement('td');
+	var dataUpd = document.createElement('td');
+	var dataDel = document.createElement('td');
 
 
 	dataName.appendChild(nameText);
@@ -114,6 +135,9 @@ function insertRow(data) {
 	dataWght.appendChild(wghtText);
 	dataDate.appendChild(dateText);
 	dataLbs.appendChild(lbsText);
+	dataUpd.appendChild(uButton);
+	dataDel.appendChild(dButton);
+
 
 	
 	tableRow.appendChild(dataName);
@@ -121,12 +145,20 @@ function insertRow(data) {
 	tableRow.appendChild(dataWght);
 	tableRow.appendChild(dataDate);
 	tableRow.appendChild(dataLbs);
+	tableRow.appendChild(dataUpd);
+	tableRow.appendChild(dataDel);
+
 
 	parent.appendChild(tableRow);
-	console.log(ACTIVE_IDS);
 }
 
+function removeRow(rowId) {
 
+	var toRemove = document.getElementById(rowId);
+	var parent = document.getElementById("workoutData");
+
+	parent.removeChild(toRemove);
+}
 
 
 function resetData(event) {
@@ -140,6 +172,12 @@ function resetData(event) {
         if (request.status >= 200 && request.status < 400) {
             var response = JSON.parse(request.responseText);
 			var returnStatus = response.status;
+			var parent = document.getElementById("workoutData");
+
+			while (parent.hasChildNodes()) {
+   				 parent.removeChild(parent.lastChild);
+
+			}
 
 			console.log(response);
 			document.getElementById('status').textContent = returnStatus; 
