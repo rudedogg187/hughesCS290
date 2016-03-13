@@ -27,7 +27,7 @@ app.post('/', function(req, res, next) {
 			return;
 		}
 
-		context.results = JSON.stringify(rows);
+		context.results = rows //JSON.stringify(rows);
 		context.status = 'Status: Database Loaded';
 		res.send(context);
 	});
@@ -57,8 +57,9 @@ app.post('/insert',function(req,res,next){
 				next(err);
 				return;
 			}
-	
-			context.results = JSON.stringify(rows);
+
+			context.newId = result.insertId;	
+			context.results = rows // JSON.stringify(rows);
 			context.status = 'Status: Inserted ID ' + result.insertId + ' Successfully!';
 	
 			res.send(context);
